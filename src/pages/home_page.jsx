@@ -5,7 +5,6 @@ const HomePage = () => {
     <div className="home-page">
       <h2>¡Aquí se encuentran los cursos a los cuales estás disponible para hacer ayudantía!</h2>
       <p>Una vez que elijas postular, si deseas revisar su estado o cancelarla deberá ir a Estado Postulaciones.</p>
-      <p>Haga doble click para cambiar el tipo de ayudante que desea ser.</p>
 
       {/* Tabla de cursos */}
       <div className="table-container">
@@ -25,7 +24,7 @@ const HomePage = () => {
             <tr>
               <td>San Joaquín</td>
               <td>INF-123</td>
-              <td>Cátedra <span className="toggle-role">Laboratorio ➔</span></td>
+              <td>Cátedra <span className="toggle-role">Laboratorio</span></td>
               <td>Marzo</td>
               <td>Julio</td>
               <td>40</td>
@@ -66,7 +65,7 @@ const HomePage = () => {
               <td>Marzo</td>
               <td>Julio</td>
               <td>40</td>
-              <td><input type="checkbox" /></td>
+              <td><button className="apply-button">➔</button></td>
             </tr>
             <tr>
               <td>Casa Central</td>
@@ -74,7 +73,7 @@ const HomePage = () => {
               <td>Abril</td>
               <td>Julio</td>
               <td>40</td>
-              <td><input type="checkbox" /></td>
+              <td><button className="apply-button">➔</button></td>
             </tr>
           </tbody>
         </table>
