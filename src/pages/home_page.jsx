@@ -1,21 +1,27 @@
 import React, { useState } from 'react';
 import ToggleRole from '../components/toggle_rol';
 const HomePage = () => {
-const [alertMessage, setAlertMessage] = useState("");
-  const handleSave = (location, courseCode, role, startDate, endDate, capacity)  => {
-      const rowData = {
-          location,
-          courseCode,
-          role: role,
-          startDate,
-          endDate,
-          capacity
-      };
 
-      // Save row data to sessionStorage
+  const [alertMessage, setAlertMessage] = useState("");
+
+  const [selectedRows, setSelectedRows] = useState([]); // Para ver filas elegidas
+  const courses = [
+      { location: "San Joaquín", courseCode: "INF-123", role: "Laboratorio", startDate: "Marzo", endDate: "Julio", capacity: 40 },
+      { location: "Casa Central", courseCode: "INF-102", role: "Laboratorio", startDate: "Abril", endDate: "Julio", capacity: 40 }
+    ];
+
+  const handleSave = (location, courseCode, role, startDate, endDate, capacity)  => {
+    const rowData = { location, courseCode, role, startDate, endDate, capacity };
+
+      const savedRows = JSON.parse(sessionStorage.getItem("selectedRows")) || [];
+      savedRows.push(rowData);
+      // Guarda las filas seleccionadas en sessionStorage
       sessionStorage.setItem("selectedRow", JSON.stringify(rowData));
+      setSelectedRows([...selectedRows, rowData.courseCode]);  //pone el id del curso como identificador unico.
+
+      //genera el mensaje de alerta
       setAlertMessage(`Row data saved to sessionStorage: ${JSON.stringify(rowData)}`);
-      setTimeout(() => setAlertMessage(""), 3000); 
+        setTimeout(() => setAlertMessage(""), 3000); 
   };
 
   return (
@@ -39,25 +45,35 @@ const [alertMessage, setAlertMessage] = useState("");
             </tr>
           </thead>
           <tbody>
-
-            <tr>
-              <td>San Joaquín</td>
-              <td>INF-123</td>
-              <ToggleRole />
-              <td>Marzo</td>
-              <td>Julio</td>
-              <td>40</td>
-              <td><button className="apply-button"  onClick={() => handleSave("San Joaquín", "INF-123", "Laboratorio", "Marzo", "Julio", 40)}>➔</button></td>
-            </tr>
-            <tr>
-              <td>Casa Central</td>
-              <td>INF-102</td>
-              <ToggleRole />
-              <td>Abril</td>
-              <td>Julio</td>
-              <td>40</td>
-              <td><button className="apply-button" onClick={() => handleSave("Casa Central", "INF-102", "Laboratorio", "Abril", "Julio", 40)}>➔</button></td>
-            </tr>
+          {courses
+              .filter(course => !selectedRows.includes(course.courseCode)) // Filter out selected rows
+              .map((course) => (
+                <tr key={course.courseCode}>
+                  <td>{course.location}</td>
+                  <td>{course.courseCode}</td>
+                  <ToggleRole />
+                  <td>{course.startDate}</td>
+                  <td>{course.endDate}</td>
+                  <td>{course.capacity}</td>
+                  <td>
+                    <button
+                      className="apply-button"
+                      onClick={() =>
+                        handleSave(
+                          course.location,
+                          course.courseCode,
+                          course.role,
+                          course.startDate,
+                          course.endDate,
+                          course.capacity
+                        )
+                      }
+                    >
+                      ➔
+                    </button>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>

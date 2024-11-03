@@ -9,7 +9,7 @@ const Layout = () => {
   return (
     <BrowserRouter>
       <div className='layout'>
-        <h1 className='layout__title'>Plataforma de Ayudantías Unificada</h1>
+        <h1 className='layout__title' >Plataforma de Ayudantías Unificada</h1>
         <NavBar />
         <div className='layout__page'>
           <Routes>
