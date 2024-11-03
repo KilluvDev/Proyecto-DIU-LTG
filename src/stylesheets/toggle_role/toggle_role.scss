@@ -1,0 +1,16 @@
+.toggle-role {
+    cursor: pointer;
+    padding: 5px;
+    margin: 10px 0;
+    transition: all 0.2s ease;
+    border: 2px solid #4A90E2;
+    &:hover {
+        border: 2px solid #4A90E2; // Border color on hover
+        border-radius: 5px;
+    }
+
+    &:active {
+        border: 2px solid #4A90E2;
+        background-color: #e0f0ff; // Optional background for pressed effect
+    }
+}

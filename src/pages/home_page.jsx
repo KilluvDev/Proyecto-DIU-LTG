@@ -1,5 +1,5 @@
 import React from 'react';
-
+import ToggleRole from '../components/toggle_rol';
 const HomePage = () => {
   return (
     <div className="home-page">
@@ -24,7 +24,7 @@ const HomePage = () => {
             <tr>
               <td>San Joaquín</td>
               <td>INF-123</td>
-              <td>Cátedra <span className="toggle-role">Laboratorio</span></td>
+              <ToggleRole />
               <td>Marzo</td>
               <td>Julio</td>
               <td>40</td>
@@ -33,7 +33,7 @@ const HomePage = () => {
             <tr>
               <td>Casa Central</td>
               <td>INF-102</td>
-              <td>Cátedra <span className="toggle-role">Laboratorio</span></td>
+              <ToggleRole />
               <td>Abril</td>
               <td>Julio</td>
               <td>40</td>
