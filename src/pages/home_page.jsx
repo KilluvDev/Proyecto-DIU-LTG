@@ -1,26 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ToggleRole from '../components/toggle_rol';
 const HomePage = () => {
-
+const [alertMessage, setAlertMessage] = useState("");
   const handleSave = (location, courseCode, role, startDate, endDate, capacity)  => {
       const rowData = {
-          location: "San Joaquín",
-          courseCode: "INF-123",
+          location,
+          courseCode,
           role: role,
-          startDate: "Marzo",
-          endDate: "Julio",
-          capacity: 40
+          startDate,
+          endDate,
+          capacity
       };
 
       // Save row data to sessionStorage
       sessionStorage.setItem("selectedRow", JSON.stringify(rowData));
-      console.log("Row data saved to sessionStorage:", rowData);
+      setAlertMessage(`Row data saved to sessionStorage: ${JSON.stringify(rowData)}`);
+      setTimeout(() => setAlertMessage(""), 3000); 
   };
 
   return (
     <div className="home-page">
       <h2>¡Aquí se encuentran los cursos a los cuales estás disponible para hacer ayudantía!</h2>
       <p>Una vez que elijas postular, si deseas revisar su estado o cancelarla deberá ir a Estado Postulaciones.</p>
+      {alertMessage && <div className="alert-box">{alertMessage}</div>}
 
       {/* Tabla de cursos */}
       <div className="table-container">
