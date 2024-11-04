@@ -5,7 +5,7 @@ const HomePage = ({ setApplications }) => {
   const [availableCourses, setAvailableCourses] = useState([]);
 
   useEffect(() => {
-    // Initial list of courses
+    // Lista Inicial.
     const initialCourses = [
       {
         emplazamiento: 'San Joaquín',
@@ -39,11 +39,11 @@ const HomePage = ({ setApplications }) => {
       },
     ];
 
-    // Load applications from sessionStorage
+    //Carga las postulaciones (aplicaciones) en un estado.
     const savedApplications = JSON.parse(sessionStorage.getItem('applications')) || [];
-    setApplications(savedApplications); // Set the applications in state
+    setApplications(savedApplications); 
 
-    // Filter out already selected courses
+    //Filtra con las aplicaciones (postulaciones) sacadas anteriormente del sessionStorage
     const filteredCourses = initialCourses.filter(course =>
       !savedApplications.some(app => app.asignatura === course.asignatura)
     );
@@ -51,16 +51,17 @@ const HomePage = ({ setApplications }) => {
     setAvailableCourses(filteredCourses);
   }, [setApplications]);
 
+  //Función para postular a las personas.
   const handleApply = (availableCourse) => {
     setApplications((prev) => {
       const newApplications = [...prev, availableCourse];
-      // Save the updated applications to sessionStorage
+      // Guarda la nueva lista de aplicaciones en el sessionStorage aplicaciones (postulaciones)
       sessionStorage.setItem('applications', JSON.stringify(newApplications));
       alert('Postulación realizada con éxito');
       return newApplications;
     });
 
-    // Remove the applied course from available courses
+    // Quita el curso aplicado de los disponibles
     setAvailableCourses((prevCourses) =>
       prevCourses.filter((c) => c.asignatura !== availableCourse.asignatura)
     );
@@ -81,7 +82,7 @@ const HomePage = ({ setApplications }) => {
       <h2>¡Aquí se encuentran los cursos a los cuales estás disponible para hacer ayudantía!</h2>
       <p>Una vez que elijas postular, si deseas revisar su estado o cancelarla deberá ir a Estado Postulaciones.</p>
 
-      {/* Table for courses with an 'asignatura' */}
+      {/* Tabla de Asignaturas*/}
       <div className="table-container">
         <table className="courses-table">
           <thead>
@@ -125,7 +126,7 @@ const HomePage = ({ setApplications }) => {
 
       <p>Recuerda que son cursos que debes haber pasado. Si deseas hacer ayudantías administrativas o de investigación, aquí abajo se presentan:</p>
 
-      {/* Table for courses without an 'asignatura' */}
+      {/* Tabla de ayudantias no asignadas a un curso específico.*/}
       <div className="table-container">
         <table className="research-table">
           <thead>
@@ -140,7 +141,7 @@ const HomePage = ({ setApplications }) => {
           </thead>
           <tbody>
             {availableCourses
-              .filter((course) => !course.asignatura) // Only show courses without 'asignatura'
+              .filter((course) => !course.asignatura) 
               .map((course, index) => (
                 <tr key={index}>
                   <td>{course.emplazamiento}</td>
