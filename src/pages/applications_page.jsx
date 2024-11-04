@@ -4,7 +4,12 @@ function ApplicationsPage({ applications, setApplications }) {
 
     const handleDelete = (indexToRemove) => {
         const updatedApplications = applications.filter((_, index) => index !== indexToRemove);
+        
+        // Update the applications state
         setApplications(updatedApplications);
+
+        // Update the session storage
+        sessionStorage.setItem('applications', JSON.stringify(updatedApplications));
     };
 
     return (
@@ -22,6 +27,7 @@ function ApplicationsPage({ applications, setApplications }) {
                                 <th>Término</th>
                                 <th>Horas</th>
                                 <th>Estado</th>
+                                <th>Borrar postulación</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,7 +41,12 @@ function ApplicationsPage({ applications, setApplications }) {
                                     <td>{application.horas}</td>
                                     <td>Pendiente</td>
                                     <td>
-                                        <button className="delete-button" onClick={() => handleDelete(index)}>X</button>
+                                        <button 
+                                            className="delete-button" 
+                                            onClick={() => handleDelete(index)}
+                                        >
+                                            X
+                                        </button>
                                     </td>
                                 </tr>
                             ))}

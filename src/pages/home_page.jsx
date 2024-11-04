@@ -25,6 +25,7 @@ const HomePage = ({ setApplications }) => {
       },
       {
         emplazamiento: 'San Joaquín',
+        code: 'INV-001',
         tipoAyudante: 'Investigador',
         inicio: 'Marzo',
         termino: 'Julio',
@@ -33,6 +34,7 @@ const HomePage = ({ setApplications }) => {
       {
         emplazamiento: 'Casa Central',
         tipoAyudante: 'Ayudante de informática',
+        code: 'ADM-002',
         inicio: 'Abril',
         termino: 'Julio',
         horas: 40,
@@ -44,26 +46,31 @@ const HomePage = ({ setApplications }) => {
     setApplications(savedApplications); 
 
     //Filtra con las aplicaciones (postulaciones) sacadas anteriormente del sessionStorage
-    const filteredCourses = initialCourses.filter(course =>
-      !savedApplications.some(app => app.asignatura === course.asignatura)
+    const filteredCourses = initialCourses.filter(
+      (course) =>
+        !savedApplications.some(
+          (app) =>
+            app.asignatura === course.asignatura && app.code === course.code
+        )
     );
-
     setAvailableCourses(filteredCourses);
   }, [setApplications]);
 
   //Función para postular a las personas.
-  const handleApply = (availableCourse) => {
+  const handleApply = (selectedCourse) => {
     setApplications((prev) => {
-      const newApplications = [...prev, availableCourse];
-      // Guarda la nueva lista de aplicaciones en el sessionStorage aplicaciones (postulaciones)
+      const newApplications = [...prev, selectedCourse];
       sessionStorage.setItem('applications', JSON.stringify(newApplications));
       alert('Postulación realizada con éxito');
       return newApplications;
     });
 
-    // Quita el curso aplicado de los disponibles
     setAvailableCourses((prevCourses) =>
-      prevCourses.filter((c) => c.asignatura !== availableCourse.asignatura)
+      prevCourses.filter(
+        (course) =>
+          course.asignatura !== selectedCourse.asignatura ||
+          course.code !== selectedCourse.code
+      )
     );
   };
 
@@ -141,7 +148,7 @@ const HomePage = ({ setApplications }) => {
           </thead>
           <tbody>
             {availableCourses
-              .filter((course) => !course.asignatura) 
+              .filter((course) => course.code) 
               .map((course, index) => (
                 <tr key={index}>
                   <td>{course.emplazamiento}</td>
