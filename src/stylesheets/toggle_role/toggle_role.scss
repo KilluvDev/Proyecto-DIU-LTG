@@ -3,14 +3,24 @@
     padding: 5px;
     margin: 10px 0;
     transition: all 0.2s ease;
-    border: 2px solid #4A90E2;
-    &:hover {
-        border: 2px solid #4A90E2; // Border color on hover
-        border-radius: 5px;
-    }
-
-    &:active {
+    
+    button {
         border: 2px solid #4A90E2;
-        background-color: #e0f0ff; // Optional background for pressed effect
+        background: none;
+        cursor: pointer;
+        padding: 5px 10px;
+        font-size: 1em;
+        color: #4A90E2;
+        border-radius: 5px;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background-color: #a0d1ff; // Hover background color
+            border-color: #4A90E2;
+        }
+
+        &:active {
+            background-color: #cce4ff; // Active background color for pressed effect
+        }
     }
 }

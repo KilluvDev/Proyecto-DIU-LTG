@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import '../stylesheets/toggle_role/toggle_role.scss'; 
+import React from 'react';
+import '../stylesheets/toggle_role/toggle_role.scss';
 
-function ToggleRole() {
-    const [role, setRole] = useState("Laboratorio");
+const ToggleRole = ({ role, onChangeRole }) => {
+  const toggleRole = () => {
+    onChangeRole(role === 'Laboratorio' ? 'Cátedra' : 'Laboratorio');
+  };
 
-    const toggleRole = () => {
-        setRole((prevRole) => (prevRole === "Laboratorio" ? "Cátedra" : "Laboratorio"));
-    };
-
-    return (
-        <td>
-            <span className="toggle-role" onClick={toggleRole}>{role}</span>
-        </td>
-    );
-}
+  return (
+    <td className='toggle-role'>
+      <button  onClick={toggleRole}>
+        {role}
+      </button>
+    </td>
+  );
+};
 
 export default ToggleRole;
