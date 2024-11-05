@@ -8,42 +8,50 @@ const HomePage = ({ setApplications }) => {
     // Lista Inicial.
     const initialCourses = [
       {
+        id: 1,
         emplazamiento: 'San Joaquín',
         asignatura: 'INF-123',
         tipoAyudante: 'Laboratorio',
         inicio: 'Marzo',
         termino: 'Julio',
-        horas: 40,
+        horas: 15,
+        estado: 'Pendiente', // Actualizado para poder gestionar su cambio a posteriori
       },
       {
+        id: 2,
         emplazamiento: 'Casa Central',
         asignatura: 'INF-102',
         tipoAyudante: 'Laboratorio',
         inicio: 'Abril',
         termino: 'Julio',
-        horas: 40,
+        horas: 15,
+        estado: 'Pendiente',
       },
       {
+        id: 3,
         emplazamiento: 'San Joaquín',
         code: 'INV-001',
         tipoAyudante: 'Investigador',
         inicio: 'Marzo',
         termino: 'Julio',
         horas: 40,
+        estado: 'Pendiente',
       },
       {
+        id: 4,
         emplazamiento: 'Casa Central',
         tipoAyudante: 'Ayudante de informática',
         code: 'ADM-002',
         inicio: 'Abril',
         termino: 'Julio',
         horas: 40,
+        estado: 'Pendiente',
       },
     ];
 
     //Carga las postulaciones (aplicaciones) en un estado.
     const savedApplications = JSON.parse(sessionStorage.getItem('applications')) || [];
-    setApplications(savedApplications); 
+    setApplications(savedApplications);
 
     //Filtra con las aplicaciones (postulaciones) sacadas anteriormente del sessionStorage
     const filteredCourses = initialCourses.filter(
@@ -110,16 +118,16 @@ const HomePage = ({ setApplications }) => {
                 <tr key={index}>
                   <td>{course.emplazamiento}</td>
                   <td>{course.asignatura}</td>
-                  <ToggleRole 
-                    role={course.tipoAyudante} 
-                    onChangeRole={(newRole) => handleRoleChange(course.asignatura, newRole)} 
+                  <ToggleRole
+                    role={course.tipoAyudante}
+                    onChangeRole={(newRole) => handleRoleChange(course.asignatura, newRole)}
                   />
                   <td>{course.inicio}</td>
                   <td>{course.termino}</td>
                   <td>{course.horas}</td>
                   <td>
-                    <button 
-                      className="apply-button" 
+                    <button
+                      className="apply-button"
                       onClick={() => handleApply(course)}
                     >
                       ➔
@@ -148,7 +156,7 @@ const HomePage = ({ setApplications }) => {
           </thead>
           <tbody>
             {availableCourses
-              .filter((course) => course.code) 
+              .filter((course) => course.code)
               .map((course, index) => (
                 <tr key={index}>
                   <td>{course.emplazamiento}</td>
@@ -157,8 +165,8 @@ const HomePage = ({ setApplications }) => {
                   <td>{course.termino}</td>
                   <td>{course.horas}</td>
                   <td>
-                    <button 
-                      className="apply-button" 
+                    <button
+                      className="apply-button"
                       onClick={() => handleApply(course)}
                     >
                       ➔
