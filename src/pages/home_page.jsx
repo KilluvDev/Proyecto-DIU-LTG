@@ -94,8 +94,8 @@ const HomePage = ({ setApplications }) => {
 
   return (
     <div className="home-page">
-      <h2>¡Aquí se encuentran los cursos a los cuales estás disponible para hacer ayudantía!</h2>
-      <p>Una vez que elijas postular, si deseas revisar su estado o cancelarla deberá ir a Estado Postulaciones.</p>
+      <h2>¡Aquí encuentras los cursos los cuales tienes disponibilidad para hacer ayudantía!</h2>
+      <p>Una vez que elijas postular, si deseas revisar su estado o cancelarla deberá ir a Postulaciones.</p>
 
       {/* Tabla de Asignaturas*/}
       <div className="table-container">

@@ -45,6 +45,7 @@ function ApplicationsPage({ applications, setApplications }) {
     return (
         <div>
             <h1>Mis Postulaciones</h1>
+            <p>En caso de querer rechazar una ayudantía ya aceptada, puedes cancelarla con lo cual se notificará al docente para que seleccione otra persona</p>
             {applications.length > 0 ? (
                 <div className="table-container">
                     <table className="applications-table">
@@ -57,9 +58,10 @@ function ApplicationsPage({ applications, setApplications }) {
                                 <th>Término</th>
                                 <th>Horas</th>
                                 <th>Estado</th>
-                                <th>Borrar postulación</th>
+                                <th>Cancelar postulación</th>
                             </tr>
                         </thead>
+
                         <tbody>
                             {applications.map((application, index) => (
                                 <tr key={index}>

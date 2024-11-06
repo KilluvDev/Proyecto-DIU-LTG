@@ -4,17 +4,23 @@
 @import './nav-bar/index.scss';
 @import './lightbulb-page/index.scss';
 
-html, body {
+html,
+body {
   padding: 0;
   margin: 0;
-  
+
 }
+
 td {
-  padding: 10px; /* Adjust the padding as needed */
+  padding: 10px;
+  /* Adjust the padding as needed */
 }
+
 th {
-  padding-right: 10px; /* Adjust the padding as needed */
+  padding-right: 10px;
+  /* Adjust the padding as needed */
 }
+
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
