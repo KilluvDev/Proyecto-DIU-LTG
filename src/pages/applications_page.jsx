@@ -57,9 +57,10 @@ function ApplicationsPage({ applications, setApplications }) {
                                 <th>Término</th>
                                 <th>Horas</th>
                                 <th>Estado</th>
-                                <th>Borrar postulación</th>
+                                <th>Cancelar postulación</th>
                             </tr>
                         </thead>
+
                         <tbody>
                             {applications.map((application, index) => (
                                 <tr key={index}>
