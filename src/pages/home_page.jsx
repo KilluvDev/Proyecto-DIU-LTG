@@ -10,7 +10,7 @@ const HomePage = ({ setApplications }) => {
       {
         id: 1,
         emplazamiento: 'San Joaquín',
-        asignatura: 'INF-123',
+        asignatura: 'IWI-131',
         tipoAyudante: 'Laboratorio',
         inicio: 'Marzo',
         termino: 'Julio',
@@ -20,7 +20,7 @@ const HomePage = ({ setApplications }) => {
       {
         id: 2,
         emplazamiento: 'Casa Central',
-        asignatura: 'INF-102',
+        asignatura: 'IWG-101',
         tipoAyudante: 'Laboratorio',
         inicio: 'Abril',
         termino: 'Julio',
@@ -30,21 +30,21 @@ const HomePage = ({ setApplications }) => {
       {
         id: 3,
         emplazamiento: 'San Joaquín',
-        code: 'INV-001',
-        tipoAyudante: 'Investigador',
+        code: '102',
+        tipoAyudante: 'Laboratorio',
         inicio: 'Marzo',
         termino: 'Julio',
-        horas: 40,
+        horas: 15,
         estado: 'Pendiente',
       },
       {
         id: 4,
-        emplazamiento: 'Casa Central',
-        tipoAyudante: 'Ayudante de informática',
-        code: 'ADM-002',
+        emplazamiento: 'San Joaquín',
+        tipoAyudante: 'Ayudante de FABLAB',
+        code: '148',
         inicio: 'Abril',
         termino: 'Julio',
-        horas: 40,
+        horas: 15,
         estado: 'Pendiente',
       },
     ];
@@ -99,83 +99,91 @@ const HomePage = ({ setApplications }) => {
 
       {/* Tabla de Asignaturas*/}
       <div className="table-container">
-        <table className="courses-table">
-          <thead>
-            <tr>
-              <th>Emplazamiento</th>
-              <th>Asignatura</th>
-              <th>Tipo de ayudante</th>
-              <th>Inicio</th>
-              <th>Término</th>
-              <th>Horas</th>
-              <th>Postulación</th>
-            </tr>
-          </thead>
-          <tbody>
-            {availableCourses
-              .filter((course) => course.asignatura) // Only show courses with 'asignatura'
-              .map((course, index) => (
-                <tr key={index}>
-                  <td>{course.emplazamiento}</td>
-                  <td>{course.asignatura}</td>
-                  <ToggleRole
-                    role={course.tipoAyudante}
-                    onChangeRole={(newRole) => handleRoleChange(course.asignatura, newRole)}
-                  />
-                  <td>{course.inicio}</td>
-                  <td>{course.termino}</td>
-                  <td>{course.horas}</td>
-                  <td>
-                    <button
-                      className="apply-button"
-                      onClick={() => handleApply(course)}
-                    >
-                      ➔
-                    </button>
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+        {availableCourses.filter((course) => course.asignatura).length > 0 ? (
+      <table className="courses-table">
+        <thead>
+          <tr>
+            <th>Emplazamiento</th>
+            <th>Asignatura</th>
+            <th>Tipo de ayudante</th>
+            <th>Inicio</th>
+            <th>Término</th>
+            <th>Horas</th>
+            <th>Postulación</th>
+          </tr>
+        </thead>
+        <tbody>
+          {availableCourses
+            .filter((course) => course.asignatura) // Only show courses with 'asignatura'
+            .map((course, index) => (
+              <tr key={index}>
+                <td>{course.emplazamiento}</td>
+                <td>{course.asignatura}</td>
+                <ToggleRole
+                  role={course.tipoAyudante}
+                  onChangeRole={(newRole) => handleRoleChange(course.asignatura, newRole)}
+                />
+                <td>{course.inicio}</td>
+                <td>{course.termino}</td>
+                <td>{course.horas}</td>
+                <td>
+                  <button
+                    className="apply-button"
+                    onClick={() => handleApply(course)}
+                  >
+                    ➔
+                  </button>
+                </td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+      ) : (
+        <p>No hay cursos disponibles para postular en asignaturas.</p>
+      )}
       </div>
 
       <p>Recuerda que son cursos que debes haber pasado. Si deseas hacer ayudantías administrativas o de investigación, aquí abajo se presentan:</p>
 
       {/* Tabla de ayudantias no asignadas a un curso específico.*/}
       <div className="table-container">
-        <table className="research-table">
-          <thead>
-            <tr>
-              <th>Emplazamiento</th>
-              <th>Tipo de ayudantía</th>
-              <th>Inicio</th>
-              <th>Término</th>
-              <th>Horas</th>
-              <th>Postulación</th>
-            </tr>
-          </thead>
-          <tbody>
-            {availableCourses
-              .filter((course) => course.code)
-              .map((course, index) => (
-                <tr key={index}>
-                  <td>{course.emplazamiento}</td>
-                  <td>{course.tipoAyudante}</td>
-                  <td>{course.inicio}</td>
-                  <td>{course.termino}</td>
-                  <td>{course.horas}</td>
-                  <td>
-                    <button
-                      className="apply-button"
-                      onClick={() => handleApply(course)}
-                    >
-                      ➔
-                    </button>
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+        {availableCourses.filter((course) => course.code).length > 0 ? (
+          <table className="research-table">
+            <thead>
+              <tr>
+                <th>Emplazamiento</th>
+                <th>Tipo de ayudantía</th>
+                <th>Inicio</th>
+                <th>Término</th>
+                <th>Horas</th>
+                <th>Postulación</th>
+              </tr>
+            </thead>
+            <tbody>
+              {availableCourses
+                .filter((course) => course.code) // Only show courses with 'code'
+                .map((course, index) => (
+                  <tr key={index}>
+                    <td>{course.emplazamiento}</td>
+                    <td>{course.tipoAyudante}</td>
+                    <td>{course.inicio}</td>
+                    <td>{course.termino}</td>
+                    <td>{course.horas}</td>
+                    <td>
+                      <button
+                        className="apply-button"
+                        onClick={() => handleApply(course)}
+                      >
+                        ➔
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        ) : (
+          <p>No hay cursos disponibles para postular en ayudantías administrativas o de investigación.</p>
+        )}
       </div>
     </div>
   );
