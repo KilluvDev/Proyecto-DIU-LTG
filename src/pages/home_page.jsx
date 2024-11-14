@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Filters from '../components/filters';
+import '../stylesheets/Home_page/HomePage.css'; // Importar el archivo CSS
 
 const HomePage = ({ setApplications }) => {
   const [availableCourses, setAvailableCourses] = useState([]);
@@ -20,12 +21,12 @@ const HomePage = ({ setApplications }) => {
   useEffect(() => {
     // Lista Inicial
     const initialCourses = [
-      { id: 1,department:'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-123', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, cupos:10,estado: 'Pendiente' },
-      { id: 2,department:'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-102', tipoAyudante: 'Laboratorio', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente' },
-      { id: 3,department:'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-123', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente' },
-      { id: 4,department:'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-102', tipoAyudante: 'Catedra', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente' },
-      { id: 5,department:'Física', emplazamiento: 'San Joaquín',asignatura: 'FIS-110', code: 'INV-001', tipoAyudante: 'Investigador', inicio: 'Marzo', termino: 'Julio', horas: 40, estado: 'Pendiente' },
-      { id: 6,department:'Informática', emplazamiento: 'Casa Central', tipoAyudante: 'Ayudante de informática', code: 'ADM-002', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente' },
+      { id: 1, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-123', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, cupos: 10, estado: 'Pendiente' },
+      { id: 2, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-102', tipoAyudante: 'Laboratorio', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente' },
+      { id: 3, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-123', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente' },
+      { id: 4, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-102', tipoAyudante: 'Catedra', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente' },
+      { id: 5, department: 'Física', emplazamiento: 'San Joaquín', asignatura: 'FIS-110', tipoAyudante: 'Investigador', inicio: 'Marzo', termino: 'Julio', horas: 40, estado: 'Pendiente' },
+      { id: 6, department: 'Informática', emplazamiento: 'Casa Central', tipoAyudante: 'Ayudante de informática', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente' },
     ];
 
     const savedApplications = JSON.parse(sessionStorage.getItem('applications')) || [];
@@ -40,7 +41,6 @@ const HomePage = ({ setApplications }) => {
     setAvailableCourses(filteredCourses);
   }, [setApplications]);
 
-  // Filter courses based on selected filters
   const filteredCourses = availableCourses.filter((course) => {
     const matchLocation = selectedFilters.location ? course.emplazamiento === selectedFilters.location : true;
     const matchCourse = selectedFilters.department ? course.department === selectedFilters.department : true;
@@ -64,15 +64,14 @@ const HomePage = ({ setApplications }) => {
   };
 
   return (
-    <div className="home-page">
-      <h2>¡Aquí encuentras los cursos los cuales tienes disponibilidad para hacer ayudantía!</h2>
-      <p>Una vez que elijas postular, si deseas revisar su estado o cancelarla deberá ir a Postulaciones.</p>
+    <div className="home-container">
+      <h2 className="home-title">¡Aquí encuentras los cursos los cuales tienes disponibilidad para hacer ayudantía!</h2>
+      <p className="home-subtitle">Una vez que elijas postular, si deseas revisar su estado o cancelarla deberá ir a Postulaciones.</p>
       
-      {/* Filters */}
       <div className="filters-container">
-      <Filters  selectedFilters={selectedFilters} onFilterChange={handleFilterChange} />
-    </div>
-      {/* Table of Courses */}
+        <Filters selectedFilters={selectedFilters} onFilterChange={handleFilterChange} />
+      </div>
+
       <div className="table-container">
         <table className="courses-table">
           <thead>
@@ -87,25 +86,24 @@ const HomePage = ({ setApplications }) => {
             </tr>
           </thead>
           <tbody>
-            {filteredCourses
-              .map((course, index) => (
-                <tr key={index}>
-                  <td>{course.emplazamiento}</td>
-                  <td>{course.asignatura}</td>
-                  <td>{course.tipoAyudante}</td>
-                  <td>{course.inicio}</td>
-                  <td>{course.termino}</td>
-                  <td>{course.horas}</td>
-                  <td>
-                    <button
-                      className="apply-button"
-                      onClick={() => handleApply(course)}
-                    >
-                      ➔
-                    </button>
-                  </td>
-                </tr>
-              ))}
+            {filteredCourses.map((course, index) => (
+              <tr key={index}>
+                <td>{course.emplazamiento}</td>
+                <td>{course.asignatura}</td>
+                <td>{course.tipoAyudante}</td>
+                <td>{course.inicio}</td>
+                <td>{course.termino}</td>
+                <td>{course.horas}</td>
+                <td>
+                  <button
+                    className="apply-button"
+                    onClick={() => handleApply(course)}
+                  >
+                    ➔
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

@@ -1,0 +1,89 @@
+.personal-info-container {
+    background-color: #f4f4fc;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 700px; /* Ajuste del ancho */
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    text-align: left;
+    font-size: 22px;
+    color: #333;
+    border-bottom: 2px solid #b2a0ff;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.info-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 14px; /* Reducir tamaño de fuente */
+}
+
+.info-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #5a5a5a;
+}
+
+.sub-title {
+    font-size: 18px; /* Reducir el tamaño de subtítulo */
+    color: #5a5a5a;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #b2a0ff;
+    padding-bottom: 5px;
+}
+
+.courses-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 13px; /* Ajuste de tamaño de fuente para tabla */
+}
+
+.courses-table th,
+.courses-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.courses-table th {
+    background-color: #d0c1ff;
+    color: #333;
+    font-weight: bold;
+}
+
+.courses-table a {
+    color: #6a5acd;
+    text-decoration: none;
+}
+
+.courses-table a:hover {
+    text-decoration: underline;
+}
+
+.upload-button {
+    background-color: #b2a0ff;
+    color: white;
+    padding: 8px 12px; /* Tamaño ajustado */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px; /* Ajuste de tamaño */
+}
+
+.upload-button:hover {
+    background-color: #9a8cdc;
+}

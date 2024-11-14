@@ -1,14 +1,11 @@
 import React, { useEffect } from 'react';
+import '../stylesheets/Applications_page/ApplicationsPage.css'; // Importa el archivo CSS para estilos
 
 function ApplicationsPage({ applications, setApplications }) {
 
     const handleDelete = (indexToRemove) => {
         const updatedApplications = applications.filter((_, index) => index !== indexToRemove);
-
-        // Actualizar estado de applications
         setApplications(updatedApplications);
-
-        // Actualizar estado de applications
         sessionStorage.setItem('applications', JSON.stringify(updatedApplications));
     };
 
@@ -28,24 +25,22 @@ function ApplicationsPage({ applications, setApplications }) {
                             : application
                     );
 
-                    // Actualizar estado de applications y sesión guardada
                     setApplications(updatedApplications);
                     sessionStorage.setItem('applications', JSON.stringify(updatedApplications));
-
-                    // Alerta
                     alert('¡Una postulación ha sido aceptada!');
                 }
-            }, 10000); // Tiempo predeterminado para que no sea tedioso hacer la prueba cuando lo descarguen los ayudantes/profesora
+            }, 10000); // Temporizador para pruebas
 
-            // Timer
             return () => clearTimeout(timer);
         }
     }, [applications, setApplications]);
 
     return (
-        <div>
-            <h1>Mis Postulaciones</h1>
-            <p>En caso de querer rechazar una ayudantía ya aceptada, puedes cancelarla con lo cual se notificará al docente para que seleccione otra persona</p>
+        <div className="applications-container">
+            <h2 className="applications-title">Mis Postulaciones</h2>
+            <p className="applications-subtitle">
+                En caso de querer rechazar una ayudantía ya aceptada, puedes cancelarla con lo cual se notificará al docente para que seleccione otra persona
+            </p>
             {applications.length > 0 ? (
                 <div className="table-container">
                     <table className="applications-table">
@@ -61,7 +56,6 @@ function ApplicationsPage({ applications, setApplications }) {
                                 <th>Cancelar postulación</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             {applications.map((application, index) => (
                                 <tr key={index}>
@@ -86,7 +80,7 @@ function ApplicationsPage({ applications, setApplications }) {
                     </table>
                 </div>
             ) : (
-                <p>No hay postulaciones registradas.</p>
+                <p className="no-applications-message">No hay postulaciones registradas.</p>
             )}
         </div>
     );
