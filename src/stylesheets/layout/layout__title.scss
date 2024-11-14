@@ -1,5 +1,22 @@
 .layout__title {
+  position: fixed; /* Keeps the title at the top */
+  display: flex;
+  top: 0;
+  left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100vw; /* Full viewport width */
   text-align: center;
-  background-color: #9ac1f1;
-  padding: 10px
+  background-color: #005E90;
+  padding: 20px 0; /* Increased vertical padding for a larger top space */
+  color: white; /* Ensures text visibility */
+  font-size: 1.5em; /* Optional: Increase font size if needed */
+  z-index: 1000; /* Ensures it stays on top of other content */
+  justify-content: center; /* Centers the content horizontally */
+  align-items: center; /* Vertically centers the content */
+  gap: 10px; /* Adds space between the image and title */
+}
+.title__image {
+  max-width: 45px; /* Adjust image width */
+  height: auto; /* Maintains aspect ratio */
 }

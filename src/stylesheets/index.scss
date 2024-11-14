@@ -5,15 +5,16 @@
 @import './lightbulb-page/index.scss';
 @import './Home_page/table.scss'; 
 @import './Filters/Filters.scss';
-html,
-body {
-  padding: 0;
+html, body {
   margin: 0;
-
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+  margin-top: 30px;
 }
 
 td {
-  padding: 10px;
+  padding: 0px;
   /* Adjust the padding as needed */
 }
 

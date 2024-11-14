@@ -26,7 +26,7 @@ const HomePage = ({ setApplications }) => {
       { id: 3, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-123', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente' },
       { id: 4, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-102', tipoAyudante: 'Catedra', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente' },
       { id: 5, department: 'Física', emplazamiento: 'San Joaquín', asignatura: 'FIS-110', tipoAyudante: 'Investigador', inicio: 'Marzo', termino: 'Julio', horas: 40, estado: 'Pendiente' },
-      { id: 6, department: 'Informática', emplazamiento: 'Casa Central', tipoAyudante: 'Ayudante de informática', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente' },
+      { id: 6, department: 'Informática', emplazamiento: 'Casa Central',asignatura: 'N/A' ,tipoAyudante: 'Ayudante de informática', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente' },
     ];
 
     const savedApplications = JSON.parse(sessionStorage.getItem('applications')) || [];

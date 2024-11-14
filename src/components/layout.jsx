@@ -5,7 +5,7 @@ import HomePage from '../pages/home_page';
 import PersonalPage from '../pages/personal_page';
 import NavBar from '../components/nav_bar';
 import ApplicationsPage from '../pages/applications_page';
-
+import logo from '../assets/Logo_UTFSM.png';
 const Layout = () => {
   // Cargar postulaciones desde localStorage al iniciar la aplicación
   const [applications, setApplications] = useState(() => {
@@ -22,7 +22,8 @@ const Layout = () => {
   return (
     <BrowserRouter>
       <div className='layout'>
-        <h1 className='layout__title' >Plataforma de Ayudantías Unificada</h1>
+        <h1 className='layout__title' ><img  src={logo} alt='' className='title__image' />
+        Plataforma de Ayudantías Unificada</h1>
         <NavBar />
         <div className='layout__page'>
           <Routes>
