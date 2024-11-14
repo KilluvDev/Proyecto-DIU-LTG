@@ -1,7 +1,7 @@
 .filters-container {
     display: flex;
     gap: 15px; /* Space between selectors */
-    padding: 12px 15px;
+    padding: 12px 20px;
     background-color: #f4f4f4;
     border: 2px solid #444;
     border-radius: 6px;
@@ -11,14 +11,19 @@
   
   /* Individual selector styling */
   .filters-container select {
-    padding: 8px;
+    padding: 5px;
     font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 4px;
     background-color: #fff;
     cursor: pointer;
   }
-  
+  .filter-item {
+    display: inline-block;
+    margin-right: 10px; /* Space between each filter item */
+    vertical-align: middle; /* Aligns items in the middle vertically */
+}
+
   .filters-container select:hover {
     border-color: #444;
   }
