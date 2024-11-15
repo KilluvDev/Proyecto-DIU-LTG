@@ -2,7 +2,7 @@
     background-color: #f4f4fc; /* Color de fondo */
     padding: 20px;
     border-radius: 10px;
-    max-width: 1400px; /* Ajusta el ancho del contenedor */
+    max-width: 1300px; /* Ajusta el ancho del contenedor */
     margin: 0 auto;
     font-family: Arial, sans-serif;
     border: 1px solid #ddd;
@@ -44,7 +44,7 @@
 .courses-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 13px; /* Tamaño ajustado */
+    font-size: 10px; /* Tamaño ajustado */
     margin-top: 10px;
 }
 

@@ -2,7 +2,7 @@
     background-color: #f4f4fc;
     padding: 20px;
     border-radius: 10px;
-    max-width: 700px; /* Ajuste del ancho */
+    max-width: 1000px; /* Ajuste del ancho */
     margin: 0 auto;
     font-family: Arial, sans-serif;
     border: 1px solid #ddd;
@@ -13,7 +13,7 @@
     text-align: left;
     font-size: 22px;
     color: #333;
-    border-bottom: 2px solid #b2a0ff;
+    border-bottom: 2px solid #2d4fd6;
     padding-bottom: 5px;
     margin-bottom: 15px;
 }
@@ -41,7 +41,7 @@
     color: #5a5a5a;
     margin-top: 20px;
     margin-bottom: 10px;
-    border-bottom: 2px solid #b2a0ff;
+    border-bottom: 2px solid #2d4fd6;
     padding-bottom: 5px;
 }
 
@@ -60,13 +60,13 @@
 }
 
 .courses-table th {
-    background-color: #d0c1ff;
+    background-color: #2d4fd6;
     color: #333;
     font-weight: bold;
 }
 
 .courses-table a {
-    color: #6a5acd;
+    color: #2d4fd6;
     text-decoration: none;
 }
 
@@ -75,7 +75,7 @@
 }
 
 .upload-button {
-    background-color: #b2a0ff;
+    background-color: #2d4fd6;
     color: white;
     padding: 8px 12px; /* Tamaño ajustado */
     border: none;
@@ -85,5 +85,5 @@
 }
 
 .upload-button:hover {
-    background-color: #9a8cdc;
+    background-color: #2d4fd6;
 }

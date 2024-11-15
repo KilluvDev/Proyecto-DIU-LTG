@@ -16,6 +16,11 @@ const PersonalPage = () => {
                     <li><span className="info-label">Última matrícula:</span> 2024-2</li>
                     <li><span className="info-label">Nivel:</span> C</li>
                 </ul>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
             </div>
 
             <h2 className="sub-title">Cursos EAA:</h2>
