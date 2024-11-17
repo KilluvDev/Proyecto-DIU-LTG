@@ -21,34 +21,34 @@ const HomePage = ({ setApplications }) => {
   useEffect(() => {
     // Lista Inicial
     const initialCourses = [
-      { id: 1, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-134', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, cupos: 10, estado: 'Pendiente' },
-      { id: 2, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-253', tipoAyudante: 'Laboratorio', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente' },
-      { id: 3, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-234', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente' },
-      { id: 4, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-253', tipoAyudante: 'Catedra', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente' },
-      { id: 5, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-155', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 40, estado: 'Pendiente' },
-      { id: 6, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-155', tipoAyudante: 'Catedra', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente' },
-      { id: 7, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'N/A', tipoAyudante: 'Ayudante de informática', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente' },
-      { id: 8, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-221', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, cupos: 10, estado: 'Pendiente' },
-      { id: 9, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-221', tipoAyudante: 'Laboratorio', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente' },
-      { id: 10, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-221', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente' },
-      { id: 11, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-221', tipoAyudante: 'Catedra', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente' },
-      { id: 12, department: 'Física', emplazamiento: 'San Joaquín', asignatura: 'FIS-110', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente' },
-      { id: 13, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'N/A', tipoAyudante: 'Ayudante de informática', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente' },
-      { id: 14, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'N/A', tipoAyudante: 'Ayudante de informática', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente' },
-      { id: 15, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-270', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, cupos: 10, estado: 'Pendiente' },
-      { id: 16, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-270', tipoAyudante: 'Laboratorio', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente' },
-      { id: 17, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-270', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente' },
-      { id: 18, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-270', tipoAyudante: 'Catedra', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente' },
-      { id: 19, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'N/A', tipoAyudante: 'Investigador', inicio: 'Marzo', termino: 'Julio', horas: 40, estado: 'Pendiente' },
-      { id: 20, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'N/A', tipoAyudante: 'Ayudante de informática', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente' },
-      { id: 21, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'N/A', tipoAyudante: 'Ayudante de informática', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente' },
-      { id: 22, department: 'Física', emplazamiento: 'San Joaquín', asignatura: 'FIS-110', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente' },
-      { id: 23, department: 'Física', emplazamiento: 'Casa Central', asignatura: 'FIS-110', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente' },
-      { id: 24, department: 'Física', emplazamiento: 'Casa Central', asignatura: 'FIS-110', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente' },
-      { id: 25, department: 'Física', emplazamiento: 'San Joaquín', asignatura: 'FIS-120', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente' },
-      { id: 26, department: 'Física', emplazamiento: 'Casa Central', asignatura: 'FIS-120', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente' },
-      { id: 27, department: 'Física', emplazamiento: 'Casa Central', asignatura: 'FIS-120', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente' },
-      { id: 28, department: 'Física', emplazamiento: 'San Joaquín', asignatura: 'FIS-120', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente' },
+      { id: 1, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-134', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, cupos: 10, estado: 'Pendiente', nombre: 'Estructura de datos' },
+      { id: 2, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-253', tipoAyudante: 'Laboratorio', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Lenguajes de programación' },
+      { id: 3, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-253', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Lenguajes de programación' },
+      { id: 4, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-253', tipoAyudante: 'Catedra', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Lenguajes de programación' },
+      { id: 5, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-155', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 40, estado: 'Pendiente', nombre: 'Informática teórica' },
+      { id: 6, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-155', tipoAyudante: 'Catedra', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente', nombre: 'Informática teórica' },
+      { id: 7, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'N/A', tipoAyudante: 'Ayudante de informática', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente', nombre: 'N/A' },
+      { id: 8, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-221', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, cupos: 10, estado: 'Pendiente', nombre: 'Algoritmos y complejidad' },
+      { id: 9, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-221', tipoAyudante: 'Laboratorio', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Algoritmos y complejidad' },
+      { id: 10, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-221', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Algoritmos y complejidad' },
+      { id: 11, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-221', tipoAyudante: 'Catedra', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Algoritmos y complejidad' },
+      { id: 12, department: 'Física', emplazamiento: 'San Joaquín', asignatura: 'FIS-110', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Física 1' },
+      { id: 13, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'N/A', tipoAyudante: 'Ayudante de informática', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente', nombre: 'N/A' },
+      { id: 14, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'N/A', tipoAyudante: 'Ayudante de informática', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente', nombre: 'N/A' },
+      { id: 15, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-270', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, cupos: 10, estado: 'Pendiente', nombre: 'Organización y sistemas de información' },
+      { id: 16, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-270', tipoAyudante: 'Laboratorio', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Organización y sistemas de información' },
+      { id: 17, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-270', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Organización y sistemas de información' },
+      { id: 18, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-270', tipoAyudante: 'Catedra', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Organización y sistemas de información' },
+      { id: 19, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'N/A', tipoAyudante: 'Investigador', inicio: 'Marzo', termino: 'Julio', horas: 40, estado: 'Pendiente', nombre: 'N/A' },
+      { id: 20, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'N/A', tipoAyudante: 'Ayudante de informática', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente', nombre: 'N/A' },
+      { id: 21, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'N/A', tipoAyudante: 'Ayudante de informática', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente', nombre: 'N/A' },
+      { id: 22, department: 'Física', emplazamiento: 'San Joaquín', asignatura: 'FIS-110', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Física 1' },
+      { id: 23, department: 'Física', emplazamiento: 'Casa Central', asignatura: 'FIS-110', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Física 1' },
+      { id: 24, department: 'Física', emplazamiento: 'Casa Central', asignatura: 'FIS-110', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Física 1' },
+      { id: 25, department: 'Física', emplazamiento: 'San Joaquín', asignatura: 'FIS-120', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Física 2' },
+      { id: 26, department: 'Física', emplazamiento: 'Casa Central', asignatura: 'FIS-120', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Física 2' },
+      { id: 27, department: 'Física', emplazamiento: 'Casa Central', asignatura: 'FIS-120', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Física 2' },
+      { id: 28, department: 'Física', emplazamiento: 'San Joaquín', asignatura: 'FIS-120', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Física 2' },
     ];
 
     const savedApplications = JSON.parse(sessionStorage.getItem('applications')) || [];
@@ -100,7 +100,8 @@ const HomePage = ({ setApplications }) => {
             <tr>
               <th>Emplazamiento</th>
               <th>Departamento</th>
-              <th>Asignatura</th>
+              <th>Nombre asignatura</th>
+              <th>Sigla asignatura</th>
               <th>Tipo de ayudante</th>
               <th>Inicio</th>
               <th>Término</th>
@@ -113,6 +114,7 @@ const HomePage = ({ setApplications }) => {
               <tr key={index}>
                 <td>{course.emplazamiento}</td>
                 <td>{course.department}</td>
+                <td>{course.nombre}</td>
                 <td>{course.asignatura}</td>
                 <td>{course.tipoAyudante}</td>
                 <td>{course.inicio}</td>

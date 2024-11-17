@@ -93,9 +93,9 @@ const PersonalPage = () => {
 
             {/* File Input for Upload */}
             <div className="file-upload">
-                <input 
-                    type="file" 
-                    onChange={handleFileChange} 
+                <input
+                    type="file"
+                    onChange={handleFileChange}
                     accept=".pdf"  // Limit file selection to PDFs
                     id="file-upload"
                 />
@@ -104,8 +104,8 @@ const PersonalPage = () => {
                         <span>Archivo seleccionado: {selectedFile.name}</span>
                     </div>
                 )}
-                <button 
-                    className="upload-button" 
+                <button
+                    className="upload-button"
                     onClick={handleUpload}
                 >
                     Subir certificado
@@ -115,8 +115,7 @@ const PersonalPage = () => {
             {/* Display the uploaded certificate */}
             {fileURL && (
                 <div className="uploaded-file">
-                    <h3>Certificado Subido (Pendiente de verificación):</h3>
-                    <embed src={fileURL} width="600" height="400" type="application/pdf" />
+                    <h3>Certificado Subido (Pendiente de verificación)</h3>
                 </div>
             )}
         </div>
