@@ -40,7 +40,7 @@ const PersonalPage = () => {
                         <td>Ayudante de Cátedra</td>
                         <td>2024-1</td>
                         <td>Aprobado</td>
-                        <td><a href="#">Descargar</a></td>
+                        <td><a href="src/assets/Certificado.pdf" download="Certificado">Descargar</a></td>
                         <td>10</td>
                         <td>2025-2</td>
                     </tr>
@@ -48,7 +48,7 @@ const PersonalPage = () => {
                         <td>Ayudante de Laboratorio</td>
                         <td>2023-2</td>
                         <td>Vencido</td>
-                        <td><a href="#">Renovar</a></td>
+                        <td><a href="https://dea.usm.cl/escuela-de-asistentes-de-aprendizaje/" target="_blank">Renovar</a></td>
                         <td>10</td>
                         <td>2024-1</td>
                     </tr>
