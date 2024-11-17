@@ -43,7 +43,11 @@ module.exports = (_, argv) => ({
             loader: 'file-loader'
           }
         ]
-      }
+      },
+      {
+        test: /\.pdf$/,
+        use: 'file-loader',
+      },
     ]
   },
   devServer: {

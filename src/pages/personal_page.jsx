@@ -1,6 +1,6 @@
 import React from 'react';
 import '../stylesheets/Personal_info/personal_page.css'; // Import a CSS file for styling
-
+import certificado from '../assets/Certificado.pdf';
 const PersonalPage = () => {
     return (
         <div className="personal-info-container">
@@ -40,7 +40,7 @@ const PersonalPage = () => {
                         <td>Ayudante de Cátedra</td>
                         <td>2024-1</td>
                         <td>Aprobado</td>
-                        <td><a href="src/assets/Certificado.pdf" download="Certificado">Descargar</a></td>
+                        <td><a href={certificado} download>Descargar</a></td>
                         <td>10</td>
                         <td>2025-2</td>
                     </tr>

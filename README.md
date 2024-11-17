@@ -15,6 +15,7 @@ Install dependences
 
 ```
 npm install
+npm install file-loader --save-dev
 ```
 
 Launch environment
