@@ -99,6 +99,7 @@ const HomePage = ({ setApplications }) => {
           <thead>
             <tr>
               <th>Emplazamiento</th>
+              <th>Departamento</th>
               <th>Asignatura</th>
               <th>Tipo de ayudante</th>
               <th>Inicio</th>
@@ -111,6 +112,7 @@ const HomePage = ({ setApplications }) => {
             {filteredCourses.map((course, index) => (
               <tr key={index}>
                 <td>{course.emplazamiento}</td>
+                <td>{course.department}</td>
                 <td>{course.asignatura}</td>
                 <td>{course.tipoAyudante}</td>
                 <td>{course.inicio}</td>

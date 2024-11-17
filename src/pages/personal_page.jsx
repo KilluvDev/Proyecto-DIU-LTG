@@ -7,12 +7,12 @@ const PersonalPage = () => {
             <h1 className="title">Datos Personales</h1>
             <div className="info-section">
                 <ul>
-                    <li><span className="info-label">Nombre:</span> Lilly Guevara</li>
+                    <li><span className="info-label">Nombre: </span>Carlos Vera</li>
                     <li><span className="info-label">Emplazamiento:</span> Santiago San Joaquín</li>
                     <li><span className="info-label">Carrera:</span> Ingeniería civil en Informática</li>
                 </ul>
                 <ul>
-                    <li><span className="info-label">ROL:</span> 202173596-8</li>
+                    <li><span className="info-label">ROL:</span> 202173564-k</li>
                     <li><span className="info-label">Última matrícula:</span> 2024-2</li>
                     <li><span className="info-label">Nivel:</span> C</li>
                 </ul>
@@ -63,7 +63,7 @@ const PersonalPage = () => {
                 </tbody>
             </table>
 
-            <button className="upload-button">Subir certificado</button>
+            <button className="upload-button" href="/upload">Subir certificado</button>
         </div>
     );
 };
