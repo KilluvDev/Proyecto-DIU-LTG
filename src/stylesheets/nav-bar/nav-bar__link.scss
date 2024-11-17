@@ -1,9 +1,19 @@
 .nav-bar__link {
-  padding: 10px;
+  padding: 10px 15px;
+  margin-top: 20px;
   text-decoration: none;
-  color: black;
+  color: white; /* Better contrast on dark background */
+  font-size: 16px;
+  border-radius: 4px; /* Smooth edges for hover */
+  transition: background 0.3s ease, transform 0.3s ease; /* Smooth hover animation */
+}
+
+.nav-bar__link:hover {
+  background: rgba(255, 255, 255, 0.2); /* Highlight effect */
+  transform: scale(1.1); /* Slightly enlarge on hover */
 }
 
 .nav-bar__link--active {
   font-weight: bold;
+  border-bottom: 2px solid white; /* Underline for the active link */
 }
