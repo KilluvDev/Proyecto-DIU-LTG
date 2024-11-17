@@ -1,4 +1,4 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import HomePage from '../pages/home_page';
@@ -22,8 +22,8 @@ const Layout = () => {
   return (
     <BrowserRouter>
       <div className='layout'>
-        <h1 className='layout__title' ><img  src={logo} alt='' className='title__image' />
-        Plataforma de Ayudantías Unificada</h1>
+        <h1 className='layout__title' ><a href="/"><img src={logo} alt='' className='title__image' /></a>
+          Plataforma de Ayudantías Unificada</h1>
         <NavBar />
         <div className='layout__page'>
           <Routes>

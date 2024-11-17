@@ -26,7 +26,22 @@ const HomePage = ({ setApplications }) => {
       { id: 3, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-123', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente' },
       { id: 4, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-102', tipoAyudante: 'Catedra', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente' },
       { id: 5, department: 'Física', emplazamiento: 'San Joaquín', asignatura: 'FIS-110', tipoAyudante: 'Investigador', inicio: 'Marzo', termino: 'Julio', horas: 40, estado: 'Pendiente' },
-      { id: 6, department: 'Informática', emplazamiento: 'Casa Central',asignatura: 'N/A' ,tipoAyudante: 'Ayudante de informática', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente' },
+      { id: 6, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'N/A', tipoAyudante: 'Ayudante de informática', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente' },
+      { id: 7, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'N/A', tipoAyudante: 'Ayudante de informática', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente' },
+      { id: 8, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-123', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, cupos: 10, estado: 'Pendiente' },
+      { id: 9, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-102', tipoAyudante: 'Laboratorio', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente' },
+      { id: 10, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-123', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente' },
+      { id: 11, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-102', tipoAyudante: 'Catedra', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente' },
+      { id: 12, department: 'Física', emplazamiento: 'San Joaquín', asignatura: 'FIS-110', tipoAyudante: 'Investigador', inicio: 'Marzo', termino: 'Julio', horas: 40, estado: 'Pendiente' },
+      { id: 13, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'N/A', tipoAyudante: 'Ayudante de informática', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente' },
+      { id: 14, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'N/A', tipoAyudante: 'Ayudante de informática', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente' },
+      { id: 15, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-123', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, cupos: 10, estado: 'Pendiente' },
+      { id: 16, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-102', tipoAyudante: 'Laboratorio', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente' },
+      { id: 17, department: 'Informática', emplazamiento: 'San Joaquín', asignatura: 'INF-123', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente' },
+      { id: 18, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'INF-102', tipoAyudante: 'Catedra', inicio: 'Abril', termino: 'Julio', horas: 15, estado: 'Pendiente' },
+      { id: 19, department: 'Física', emplazamiento: 'San Joaquín', asignatura: 'FIS-110', tipoAyudante: 'Investigador', inicio: 'Marzo', termino: 'Julio', horas: 40, estado: 'Pendiente' },
+      { id: 20, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'N/A', tipoAyudante: 'Ayudante de informática', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente' },
+      { id: 21, department: 'Informática', emplazamiento: 'Casa Central', asignatura: 'N/A', tipoAyudante: 'Ayudante de informática', inicio: 'Abril', termino: 'Julio', horas: 40, estado: 'Pendiente' },
     ];
 
     const savedApplications = JSON.parse(sessionStorage.getItem('applications')) || [];
@@ -67,7 +82,7 @@ const HomePage = ({ setApplications }) => {
     <div className="home-container">
       <h2 className="home-title">¡Aquí encuentras los cursos los cuales tienes disponibilidad para hacer ayudantía!</h2>
       <p className="home-subtitle">Una vez que elijas postular, si deseas revisar su estado o cancelarla deberá ir a Postulaciones.</p>
-      
+
       <div className="filters-container">
         <Filters selectedFilters={selectedFilters} onFilterChange={handleFilterChange} />
       </div>

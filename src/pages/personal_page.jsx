@@ -40,7 +40,7 @@ const PersonalPage = () => {
                         <td>Ayudante de Cátedra</td>
                         <td>2024-1</td>
                         <td>Aprobado</td>
-                        <td><a href={certificado} download>Descargar</a></td>
+                        <td><a href={certificado} download="Certificado">Descargar</a></td>
                         <td>10</td>
                         <td>2025-2</td>
                     </tr>
@@ -56,7 +56,7 @@ const PersonalPage = () => {
                         <td>Ayudante corrector</td>
                         <td>2024-1</td>
                         <td>Aprobado</td>
-                        <td><a href="#">Descargar</a></td>
+                        <td><a href={certificado} download="Certificado">Descargar</a></td>
                         <td>10</td>
                         <td>2025-2</td>
                     </tr>
