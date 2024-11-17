@@ -47,6 +47,7 @@ function ApplicationsPage({ applications, setApplications }) {
                         <thead>
                             <tr>
                                 <th>Emplazamiento</th>
+                                <th>Departamento</th>
                                 <th>Asignatura</th>
                                 <th>Tipo de Ayudantía</th>
                                 <th>Inicio</th>
@@ -60,6 +61,7 @@ function ApplicationsPage({ applications, setApplications }) {
                             {applications.map((application, index) => (
                                 <tr key={index}>
                                     <td>{application.emplazamiento}</td>
+                                    <td>{application.department}</td>
                                     <td>{application.asignatura || 'N/A'}</td>
                                     <td>{application.tipoAyudante}</td>
                                     <td>{application.inicio}</td>
