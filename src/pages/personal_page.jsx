@@ -3,8 +3,8 @@ import '../stylesheets/Personal_info/personal_page.css';
 
 const PersonalPage = () => {
     const [selectedFile, setSelectedFile] = useState(null);
-    const [fileURL, setFileURL] = useState(null); 
-    const [isFileUploaded, setIsFileUploaded] = useState(false); 
+    const [fileURL, setFileURL] = useState(null);
+    const [isFileUploaded, setIsFileUploaded] = useState(false);
 
 
     useEffect(() => {
@@ -60,7 +60,6 @@ const PersonalPage = () => {
                         <th>Versión</th>
                         <th>Situación</th>
                         <th>Certificado</th>
-                        <th>Horas</th>
                         <th>Vigencia</th>
                     </tr>
                 </thead>
@@ -70,7 +69,6 @@ const PersonalPage = () => {
                         <td>2024-1</td>
                         <td>Aprobado</td>
                         <td><a href={fileURL} download="Certificado">Descargar</a></td>
-                        <td>10</td>
                         <td>2025-2</td>
                     </tr>
                     <tr>
@@ -78,7 +76,6 @@ const PersonalPage = () => {
                         <td>2023-2</td>
                         <td>Vencido</td>
                         <td><a href="https://dea.usm.cl/escuela-de-asistentes-de-aprendizaje/" target="_blank" rel="noopener noreferrer">Renovar</a></td>
-                        <td>10</td>
                         <td>2024-1</td>
                     </tr>
                     <tr>
@@ -86,14 +83,13 @@ const PersonalPage = () => {
                         <td>2024-1</td>
                         <td>Aprobado</td>
                         <td><a href={fileURL} download="Certificado">Descargar</a></td>
-                        <td>10</td>
                         <td>2025-2</td>
                     </tr>
                 </tbody>
             </table>
 
             <div >
-                Considere que solo se puede subir un archivo. 
+                Considere que solo se puede subir un archivo.
                 <input
                     type="file"
                     onChange={handleFileChange}
@@ -111,19 +107,19 @@ const PersonalPage = () => {
                     Subir certificado
                 </button>
             </div>
-                {!fileURL &&selectedFile && isFileUploaded && (
-                    <div className="file-info">
-                        <span>Archivo seleccionado: {selectedFile.name}</span>
-                    </div>
-                )}
-            
+            {!fileURL && selectedFile && isFileUploaded && (
+                <div className="file-info">
+                    <span>Archivo seleccionado: {selectedFile.name}</span>
+                </div>
+            )}
 
-                {fileURL && isFileUploaded && (
-                    <div className="uploaded-file">
-                        <h3>Certificado Subido: {selectedFile.name} (Pendiente de verificación)</h3>
-                    </div>
-                )}
-                
+
+            {fileURL && isFileUploaded && (
+                <div className="uploaded-file">
+                    <h3>Certificado Subido: {selectedFile.name} (Pendiente de verificación)</h3>
+                </div>
+            )}
+
         </div>
     );
 };

@@ -48,7 +48,7 @@ const HomePage = ({ setApplications }) => {
       { id: 25, department: 'Física', emplazamiento: 'San Joaquín', asignatura: 'FIS-120', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Física 2' },
       { id: 26, department: 'Física', emplazamiento: 'Casa Central', asignatura: 'FIS-120', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Física 2' },
       { id: 27, department: 'Física', emplazamiento: 'Casa Central', asignatura: 'FIS-120', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Física 2' },
-      { id: 28, department: 'Física', emplazamiento: 'San Joaquín', asignatura: 'FIS-120', tipoAyudante: 'Laboratorio', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Física 2' },
+      { id: 28, department: 'Física', emplazamiento: 'San Joaquín', asignatura: 'FIS-120', tipoAyudante: 'Catedra', inicio: 'Marzo', termino: 'Julio', horas: 15, estado: 'Pendiente', nombre: 'Física 2' },
     ];
 
     const savedApplications = JSON.parse(sessionStorage.getItem('applications')) || [];
