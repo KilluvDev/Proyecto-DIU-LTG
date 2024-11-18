@@ -1,39 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import '../stylesheets/Personal_info/personal_page.css'; // Import a CSS file for styling
+import '../stylesheets/Personal_info/personal_page.css';
 
 const PersonalPage = () => {
-    const [selectedFile, setSelectedFile] = useState(null); // State to store the selected file
-    const [fileURL, setFileURL] = useState(null); // State to store the file URL for displaying
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [fileURL, setFileURL] = useState(null); 
+    const [isFileUploaded, setIsFileUploaded] = useState(false); 
 
-    // On component mount, check if there's a saved file in localStorage
+
     useEffect(() => {
-        const storedFile = localStorage.getItem('uploadedFile');
-        if (storedFile) {
-            setFileURL(storedFile);
+        const storedFileURL = localStorage.getItem('uploadedFileURL');
+        const storedFileName = localStorage.getItem('uploadedFileName');
+        if (storedFileURL && storedFileName) {
+            setFileURL(storedFileURL);
+            setSelectedFile({ name: storedFileName });
+            setIsFileUploaded(true);
         }
     }, []);
 
     const handleFileChange = (event) => {
-        const file = event.target.files[0]; // Get the first selected file
+        const file = event.target.files[0];
         if (file) {
-            setSelectedFile(file);
-            const fileURL = URL.createObjectURL(file); // Create an object URL for the file
+            const fileURL = URL.createObjectURL(file);
             setFileURL(fileURL);
+            setSelectedFile(file);
+            setIsFileUploaded(true);
 
-            // Store the file URL in localStorage
-            localStorage.setItem('uploadedFile', fileURL);
-        }
-    };
-
-    const handleUpload = () => {
-        if (selectedFile) {
-            // Simulate the upload (here we just log the file for now)
-            console.log("Uploading file: ", selectedFile.name);
-            // You can integrate an actual upload logic here (e.g., sending it to a server)
+            localStorage.setItem('uploadedFileURL', fileURL);
+            localStorage.setItem('uploadedFileName', file.name);
         } else {
-            alert("Por favor selecciona un archivo para subir.");
+            setIsFileUploaded(false);  // Solamente3 en el caso de que no se haya subido nada.
         }
     };
+
 
     return (
         <div className="personal-info-container">
@@ -91,33 +89,38 @@ const PersonalPage = () => {
                 </tbody>
             </table>
 
-            {/* File Input for Upload */}
-            <div className="file-upload">
+            <div >
+                Considere que solo se puede subir un archivo. 
                 <input
                     type="file"
                     onChange={handleFileChange}
-                    accept=".pdf"  // Limit file selection to PDFs
+                    accept=".pdf" // Limit file selection to PDFs
                     id="file-upload"
+                    style={{
+                        display: 'none', // Hide the file input
+                    }}
                 />
-                {selectedFile && (
-                    <div className="file-info">
-                        <span>Archivo seleccionado: {selectedFile.name}</span>
-                    </div>
-                )}
+
                 <button
                     className="upload-button"
-                    onClick={handleUpload}
+                    onClick={() => document.getElementById('file-upload').click()} // Trigger file input on button click
                 >
                     Subir certificado
                 </button>
             </div>
+                {!fileURL &&selectedFile && isFileUploaded && (
+                    <div className="file-info">
+                        <span>Archivo seleccionado: {selectedFile.name}</span>
+                    </div>
+                )}
+            
 
-            {/* Display the uploaded certificate */}
-            {fileURL && (
-                <div className="uploaded-file">
-                    <h3>Certificado Subido (Pendiente de verificación)</h3>
-                </div>
-            )}
+                {fileURL && isFileUploaded && (
+                    <div className="uploaded-file">
+                        <h3>Certificado Subido: {selectedFile.name} (Pendiente de verificación)</h3>
+                    </div>
+                )}
+                
         </div>
     );
 };
