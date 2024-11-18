@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../stylesheets/Personal_info/personal_page.css';
-
+import certificado from '../assets/Certificado.pdf'
 const PersonalPage = () => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [fileURL, setFileURL] = useState(null);
@@ -68,7 +68,7 @@ const PersonalPage = () => {
                         <td>Ayudante de Cátedra</td>
                         <td>2024-1</td>
                         <td>Aprobado</td>
-                        <td><a href={fileURL} download="Certificado">Descargar</a></td>
+                        <td><a href={certificado} download="Certificado">Descargar</a></td>
                         <td>2025-2</td>
                     </tr>
                     <tr>
@@ -82,7 +82,7 @@ const PersonalPage = () => {
                         <td>Ayudante corrector</td>
                         <td>2024-1</td>
                         <td>Aprobado</td>
-                        <td><a href={fileURL} download="Certificado">Descargar</a></td>
+                        <td><a href={certificado} download="Certificado">Descargar</a></td>
                         <td>2025-2</td>
                     </tr>
                 </tbody>
