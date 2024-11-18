@@ -2,7 +2,7 @@
     background-color: #f4f4fc;
     padding: 20px;
     border-radius: 10px;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     font-family: Arial, sans-serif;
     border: 1px solid #ddd;
@@ -34,26 +34,21 @@
     margin-top: 10px;
 }
 
-.applications-table th,
-.applications-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-}
-
-.applications-table th {
-    background-color: #9ac1f1;
-    color: #333;
-    font-weight: bold;
+.button-container {
+    display: flex; /* Enables flexbox */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    
 }
 
 .cancel-button {
     background-color: #ff5c5c;
     color: white;
-    padding: 6px 10px;
+    padding: 6px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    display: inline-block;
 }
 
 .cancel-button:hover {

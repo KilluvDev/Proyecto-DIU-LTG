@@ -28,7 +28,7 @@ const PersonalPage = () => {
             localStorage.setItem('uploadedFileURL', fileURL);
             localStorage.setItem('uploadedFileName', file.name);
         } else {
-            setIsFileUploaded(false);  // Solamente3 en el caso de que no se haya subido nada.
+            setIsFileUploaded(false);  // Solamente en el caso de que no se haya subido nada.
         }
     };
 
@@ -93,16 +93,16 @@ const PersonalPage = () => {
                 <input
                     type="file"
                     onChange={handleFileChange}
-                    accept=".pdf" // Limit file selection to PDFs
+                    accept=".pdf"
                     id="file-upload"
                     style={{
-                        display: 'none', // Hide the file input
+                        display: 'none', 
                     }}
                 />
 
                 <button
                     className="upload-button"
-                    onClick={() => document.getElementById('file-upload').click()} // Trigger file input on button click
+                    onClick={() => document.getElementById('file-upload').click()} 
                 >
                     Subir certificado
                 </button>

@@ -11,10 +11,17 @@
   
   .courses-table th,
   .courses-table td {
-    padding: 12px 15px;
+    padding: 12px 15px; 
     text-align: left;
     border: 1px solid #ddd;
-  }
+    vertical-align: middle; 
+}
+
+.courses-table td:last-child {
+    text-align: center; 
+    vertical-align: middle;
+}
+
   
   .courses-table th {
     font-weight: bold;

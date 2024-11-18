@@ -43,7 +43,7 @@ function ApplicationsPage({ applications, setApplications }) {
             </p>
             {applications.length > 0 ? (
                 <div className="table-container">
-                    <table className="applications-table">
+                    <table className="courses-table">
                         <thead>
                             <tr>
                                 <th>Emplazamiento</th>
@@ -72,7 +72,7 @@ function ApplicationsPage({ applications, setApplications }) {
                                     <td>{application.estado}</td>
                                     <td>
                                         <button
-                                            className="delete-button"
+                                            className="cancel-button"
                                             onClick={() => handleDelete(index)}
                                         >
                                             X
